@@ -16,7 +16,7 @@ const GALLERY_IMAGES = [
   },
   {
     src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769436376/knight_t6g0sl.jpg",
-    title: "Nature's Echo",
+    title: "Medival",
   },
   {
     src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769433483/handtatooo.png",
