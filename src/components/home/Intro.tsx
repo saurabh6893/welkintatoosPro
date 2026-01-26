@@ -61,7 +61,12 @@ export default function Intro() {
                 </p>
                 
                 <div className="reveal-text">
-                    <Button variant="primary">Read Philosophy</Button>
+                    <Button 
+                        variant="primary" 
+                        onClick={() => document.getElementById("philosophy")?.scrollIntoView({ behavior: "smooth" })}
+                    >
+                        Read Philosophy
+                    </Button>
                 </div>
             </div>
 

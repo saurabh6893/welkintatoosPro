@@ -54,24 +54,49 @@ export default function ServicesSection() {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    const mm = gsap.matchMedia();
+
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=150%",
-          scrub: true,
-          pin: true,
-        },
+      // Desktop Animation
+      mm.add("(min-width: 768px)", () => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "+=150%",
+            scrub: true,
+            pin: true,
+          },
+        });
+
+        tl.from(cardsRef.current, {
+          y: 100,
+          opacity: 0,
+          scale: 0.8,
+          stagger: 0.1,
+          duration: 1,
+          ease: "power2.out",
+        });
       });
 
-      tl.from(cardsRef.current, {
-        y: 100,
-        opacity: 0,
-        scale: 0.8,
-        stagger: 0.1,
-        duration: 1,
-        ease: "power2.out",
+      // Mobile Animation (Simple Scroll Fade)
+      mm.add("(max-width: 767px)", () => {
+        cardsRef.current.forEach((card) => {
+          gsap.fromTo(
+            card,
+            { y: 50, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+        });
       });
     }, sectionRef);
 
