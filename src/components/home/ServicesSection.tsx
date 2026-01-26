@@ -17,31 +17,31 @@ const SERVICES = [
     title: "Micro Realism", 
     desc: "Hyper-detailed miniatures.", 
     className: "md:col-span-1 md:row-span-1",
-    img: "https://images.unsplash.com/photo-1621112904887-419379ce6824?auto=format&fit=crop&q=80&w=800"
+    img: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769431615/Knight.png"
   },
   { 
     title: "Fine Line", 
     desc: "Precision in every stroke.", 
     className: "md:col-span-1 md:row-span-1",
-    img: "https://images.unsplash.com/photo-1562962230-16bc46364924?auto=format&fit=crop&q=80&w=800"
+    img: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&q=80&w=800"
   },
   { 
     title: "Traditional Art", 
     desc: "Timeless motifs and bold lines.", 
     className: "md:col-span-1 md:row-span-1",
-    img: "https://images.unsplash.com/photo-1542013936693-884638332954?auto=format&fit=crop&q=80&w=800"
+    img: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769431449/Shouldertatoo.jpg"
   },
   { 
     title: "Watercolor", 
     desc: "Fluidity and vibrant blends.", 
     className: "md:col-span-1 md:row-span-1",
-    img: "https://images.unsplash.com/photo-1590246296840-e6f72c427673?auto=format&fit=crop&q=80&w=800"
+    img: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769372506/maturin.jpg"
   },
    { 
     title: "Cover-Ups", 
     desc: "Transforming the past into art.", 
     className: "md:col-span-2 md:row-span-1",
-    img: "https://images.unsplash.com/photo-1565415733475-6804561726a9?auto=format&fit=crop&q=80&w=800"
+    img: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&q=80&w=800"
   },
 ];
 

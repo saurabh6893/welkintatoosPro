@@ -33,8 +33,9 @@ export default function StudioSection() {
 
       <div className="relative w-full h-[80vh] overflow-hidden">
           <div className="absolute inset-0 flex">
+           
              <Image 
-                src="https://images.unsplash.com/photo-1596524107775-4752b07e868d?q=80&w=2070&auto=format&fit=crop" // Interior shot
+                src="https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769429424/studio.png" // Interior shot
                 alt="Studio Interior"
                 fill
                 className="object-cover opacity-80"

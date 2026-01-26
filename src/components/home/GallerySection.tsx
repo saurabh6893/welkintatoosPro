@@ -7,25 +7,26 @@ import Image from "next/image";
 
 const GALLERY_IMAGES = [
   {
-    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769354149/necktatoooo.jpg",
+    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769372506/necktatoo.jpg",
     title: "Ethereal Lines",
   },
+    {
+    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769433149/medusa_jhtp3k.png",
+    title: "Nature's Echo",
+  },
   {
-    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769354149/handtatooo.jpg",
+    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769433483/handtatooo.png",
     title: "Metric Flow",
   },
   {
-    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769372506/maturin.jpg",
+    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769433145/backneckShoulkder_og6wvf.png",
     title: "Noir Portrait",
   },
   {
-    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769354149/archangel.jpg",
+    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769433157/forearm_y3m1gm.png",
     title: "Abstract Form",
   },
-  {
-    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769354149/medusa.jpg",
-    title: "Nature's Echo",
-  },
+
 ];
 
 export default function GallerySection() {
