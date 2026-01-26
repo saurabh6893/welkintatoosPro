@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const GALLERY_IMAGES = [
   {
-    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769372506/necktatoo.jpg",
+    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769433624/backneck.png",
     title: "Ethereal Lines",
   },
     {
