@@ -125,12 +125,12 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-3 gap-6 h-auto md:h-[800px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-6 h-auto md:h-[800px]">
           {SERVICES.map((service, i) => (
             <div
               key={i}
               ref={(el) => addToRefs(el, i)}
-              className={`group relative overflow-hidden rounded-3xl bg-gray-100 ${service.className}`}>
+              className={`group relative overflow-hidden rounded-3xl bg-gray-100 h-96 md:h-auto ${service.className}`}>
               {/* Background Image */}
               <Image
                 src={service.img}
