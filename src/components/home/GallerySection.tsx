@@ -10,8 +10,12 @@ const GALLERY_IMAGES = [
     src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769433624/backneck.png",
     title: "Ethereal Lines",
   },
-    {
+  {
     src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769433149/medusa_jhtp3k.png",
+    title: "Nature's Echo",
+  },
+  {
+    src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769436376/knight_t6g0sl.jpg",
     title: "Nature's Echo",
   },
   {
@@ -26,7 +30,6 @@ const GALLERY_IMAGES = [
     src: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769433157/forearm_y3m1gm.png",
     title: "Abstract Form",
   },
-
 ];
 
 export default function GallerySection() {
