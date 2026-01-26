@@ -7,41 +7,43 @@ import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 const SERVICES = [
-  { 
-    title: "Custom Tattoos", 
-    desc: "Bespoke designs tailored to your narrative.", 
+  {
+    title: "Custom Tattoos",
+    desc: "Bespoke designs tailored to your narrative.",
     className: "md:col-span-2 md:row-span-2",
-    img: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&q=80&w=800" 
+    img: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&q=80&w=800",
   },
-  { 
-    title: "Micro Realism", 
-    desc: "Hyper-detailed miniatures.", 
+  {
+    title: "Micro Realism",
+    desc: "Hyper-detailed miniatures.",
+
     className: "md:col-span-1 md:row-span-1",
-    img: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769431615/Knight.png"
+    img: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769436376/knight_t6g0sl.jpg",
   },
-  { 
-    title: "Fine Line", 
-    desc: "Precision in every stroke.", 
+  {
+    title: "Fine Line",
+    desc: "Precision in every stroke.",
     className: "md:col-span-1 md:row-span-1",
-    img: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&q=80&w=800"
+    img: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&q=80&w=800",
   },
-  { 
-    title: "Traditional Art", 
-    desc: "Timeless motifs and bold lines.", 
+  {
+    title: "Traditional Art",
+    desc: "Timeless motifs and bold lines.",
     className: "md:col-span-1 md:row-span-1",
-    img: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769431449/Shouldertatoo.jpg"
+    img: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769433150/Shouldertatoo_zdr7by.jpg",
   },
-  { 
-    title: "Watercolor", 
-    desc: "Fluidity and vibrant blends.", 
+
+  {
+    title: "Watercolor",
+    desc: "Fluidity and vibrant blends.",
     className: "md:col-span-1 md:row-span-1",
-    img: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769372506/maturin.jpg"
+    img: "https://res.cloudinary.com/ddze1e75l/image/upload/w_900,q_auto,f_auto/v1769372506/maturin.jpg",
   },
-   { 
-    title: "Cover-Ups", 
-    desc: "Transforming the past into art.", 
+  {
+    title: "Cover-Ups",
+    desc: "Transforming the past into art.",
     className: "md:col-span-2 md:row-span-1",
-    img: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&q=80&w=800"
+    img: "https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&q=80&w=800",
   },
 ];
 
@@ -93,8 +95,8 @@ export default function ServicesSection() {
             </h3>
           </div>
           <p className="max-w-md text-right text-black/60 font-light mt-8 md:mt-0">
-            We offer a wide spectrum of artistic disciplines, masterfully executed
-            to ensure your vision is realized with precision.
+            We offer a wide spectrum of artistic disciplines, masterfully
+            executed to ensure your vision is realized with precision.
           </p>
         </div>
 
@@ -103,8 +105,7 @@ export default function ServicesSection() {
             <div
               key={i}
               ref={(el) => addToRefs(el, i)}
-              className={`group relative overflow-hidden rounded-3xl bg-gray-100 ${service.className}`}
-            >
+              className={`group relative overflow-hidden rounded-3xl bg-gray-100 ${service.className}`}>
               {/* Background Image */}
               <Image
                 src={service.img}
