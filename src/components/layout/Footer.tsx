@@ -100,11 +100,21 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-black/5">
-           <p className="text-[10px] text-black/30 uppercase tracking-[0.2em] font-bold">
-             &copy; {currentYear} Welkin Tattoos. All rights reserved.
-           </p>
-           <p className="text-[10px] text-black/30 uppercase tracking-[0.2em] font-bold mt-4 md:mt-0">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end pt-10 border-t border-black/5">
+           <div className="text-center md:text-left space-y-3">
+               <p className="text-[10px] text-black/30 uppercase tracking-[0.2em] font-bold">
+                 &copy; {currentYear} Welkin Tattoos. All rights reserved.
+               </p>
+               <div className="flex flex-col md:flex-row items-center md:items-start gap-1 md:gap-0 text-[10px] text-black/40 tracking-widest font-medium">
+                  <span>
+                    Developed by <a href="https://codedsaurabh.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-black/60 hover:text-black transition-colors border-b border-black/10 hover:border-black/50 pb-0.5">Saurabh Kedar</a>
+                  </span>
+                  <span className="hidden md:inline mx-2 text-black/20">|</span>
+                  <a href="mailto:saurabhkedar@gmail.com" className="hover:text-black transition-colors">saurabhkedar@gmail.com</a>
+               </div>
+           </div>
+
+           <p className="text-[10px] text-black/30 uppercase tracking-[0.2em] font-bold mt-6 md:mt-0">
              Art . Ink . Soul
            </p>
         </div>
