@@ -125,7 +125,7 @@ export default function BookingSection() {
                         <h4 className="text-sm font-bold uppercase tracking-wider mb-2">Direct Contact</h4>
                         <p className="text-black/60 font-light">
                             <a href="tel:07038145860" className="hover:text-black transition-colors">070381 45860</a> <br />
-                            <a href="mailto:welkintattooz@gmail.com" className="hover:text-black transition-colors">welkintattooz@gmail.com</a>
+                            <a href="mailto:Welkintattoos@gmail.com" className="hover:text-black transition-colors">Welkintattoos@gmail.com</a>
                         </p>
                         <p className="text-black/40 text-xs mt-2">
                             Open Daily: 12:00 PM – 10:00 PM
