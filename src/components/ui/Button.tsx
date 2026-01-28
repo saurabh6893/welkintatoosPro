@@ -55,6 +55,7 @@ export default function Button({
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       className={cn(
         "relative uppercase tracking-widest font-medium transition-colors duration-300 rounded-sm overflow-hidden",
+        "disabled:opacity-50 disabled:pointer-events-none disabled:cursor-not-allowed",
         variants[variant],
         sizes[size],
         className

@@ -1,8 +1,11 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { Check } from "lucide-react";
 
 import Button from "@/components/ui/Button";
 
@@ -10,6 +13,14 @@ export default function BookingSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const leftColRef = useRef<HTMLDivElement>(null);
   const rightColRef = useRef<HTMLDivElement>(null);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    concept: "",
+  });
+
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -45,6 +56,46 @@ export default function BookingSection() {
         ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      console.error("EmailJS environment variables are missing.");
+      alert("Configuration Error: EmailJS keys are missing. Please check the console.");
+      setStatus("error");
+      return;
+    }
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.concept,
+        },
+        publicKey
+      );
+      setStatus("success");
+      setFormData({ name: "", email: "", concept: "" });
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setStatus("error");
+      alert("Something went wrong. Please try again later.");
+    }
+  };
 
   return (
     <section id="booking" ref={sectionRef} className="py-40 bg-white text-black relative overflow-hidden">
@@ -84,39 +135,102 @@ export default function BookingSection() {
             </div>
 
             {/* Right Col: Form Card */}
-            <div ref={rightColRef} className="bg-white p-10 rounded-3xl shadow-2xl border border-black/5 relative overflow-hidden group will-change-transform">
-                <div className="space-y-6 relative z-10">
-                    <div className="space-y-2">
-                        <label className="text-xs uppercase tracking-widest font-bold text-black/60">Full Name</label>
-                        <input 
-                            type="text" 
-                            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-black/30 focus:bg-white transition-all duration-300"
-                            placeholder="Type your name"
-                        />
-                    </div>
-                     <div className="space-y-2">
-                        <label className="text-xs uppercase tracking-widest font-bold text-black/60">Email Address</label>
-                        <input 
-                            type="email" 
-                            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-black/30 focus:bg-white transition-all duration-300"
-                            placeholder="Type your email"
-                        />
-                    </div>
-                    <div className="space-y-2">
-                        <label className="text-xs uppercase tracking-widest font-bold text-black/60">Concept</label>
-                        <textarea 
-                            rows={4} 
-                            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-black/30 focus:bg-white transition-all duration-300 resize-none"
-                            placeholder="Describe your vision..."
-                        />
-                    </div>
-                    <Button variant="primary" size="lg" className="w-full mt-4 rounded-xl py-4">
-                        Send Inquiry
-                    </Button>
-                </div>
+            <div ref={rightColRef} className="bg-white rounded-3xl shadow-2xl border border-black/5 relative overflow-hidden group will-change-transform min-h-[500px] flex flex-col justify-center">
+                <AnimatePresence mode="wait">
+                    {status === "success" ? (
+                         <motion.div 
+                            key="success"
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 1.05 }}
+                            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }} // Apple-like ease
+                            className="p-10 flex flex-col items-center justify-center text-center space-y-6 h-full"
+                         >
+                            <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center text-green-600 mb-2">
+                                <Check size={32} />
+                            </div>
+                            <div>
+                                <h3 className="text-2xl font-bold mb-2">Inquiry Sent Successfully</h3>
+                                <p className="text-black/50 text-sm max-w-xs mx-auto">
+                                    The artist will review your concept and contact you shortly.
+                                </p>
+                            </div>
+                            <Button 
+                                variant="outline" 
+                                size="sm" 
+                                onClick={() => setStatus("idle")}
+                                className="mt-4"
+                            >
+                                Send Another
+                            </Button>
+                         </motion.div>
+                    ) : (
+                        <motion.div 
+                            key="form"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="p-10 relative z-10 w-full"
+                        >
+                            <form onSubmit={handleSubmit} className="space-y-6">
+                                <div className="space-y-2">
+                                    <label htmlFor="name" className="text-xs uppercase tracking-widest font-bold text-black/60">Full Name</label>
+                                    <input 
+                                        id="name"
+                                        name="name"
+                                        type="text" 
+                                        required
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        disabled={status === "loading"}
+                                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-black/30 focus:bg-white transition-all duration-300 disabled:opacity-50"
+                                        placeholder="Type your name"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label htmlFor="email" className="text-xs uppercase tracking-widest font-bold text-black/60">Email Address</label>
+                                    <input 
+                                        id="email"
+                                        name="email"
+                                        type="email" 
+                                        required
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        disabled={status === "loading"}
+                                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-black/30 focus:bg-white transition-all duration-300 disabled:opacity-50"
+                                        placeholder="Type your email"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label htmlFor="concept" className="text-xs uppercase tracking-widest font-bold text-black/60">Concept</label>
+                                    <textarea 
+                                        id="concept"
+                                        name="concept"
+                                        rows={4} 
+                                        required
+                                        value={formData.concept}
+                                        onChange={handleChange}
+                                        disabled={status === "loading"}
+                                        className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-black/30 focus:bg-white transition-all duration-300 resize-none disabled:opacity-50"
+                                        placeholder="Describe your vision..."
+                                    />
+                                </div>
+                                <Button 
+                                    type="submit" 
+                                    variant="primary" 
+                                    size="lg" 
+                                    className="w-full mt-4 rounded-xl py-4"
+                                    disabled={status === "loading"}
+                                >
+                                    {status === "loading" ? "Sending..." : "Send Inquiry"}
+                                </Button>
+                            </form>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
                 
-                {/* Subtle sheen effect on form */}
-                <div className="absolute -inset-full bg-gradient-to-r from-transparent via-white/40 to-transparent rotate-45 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700 w-[200%]" />
+                {/* Subtle sheen effect on available only when form is present effectively, can keep it but might clash with success. Let's keep it behind content */}
+                <div className="absolute -inset-full bg-gradient-to-r from-transparent via-white/40 to-transparent rotate-45 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700 w-[200%] z-0" />
             </div>
 
         </div>
