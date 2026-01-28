@@ -23,7 +23,7 @@ const STYLES = [
 
 export default function StylesSection() {
   return (
-    <section id="styles" className="py-32 bg-white text-black">
+    <section id="styles" className="py-32 bg-white text-black scroll-mt-24">
       <div className="container mx-auto px-6">
         <div className="mb-20 text-center">
           <h2 className="text-xs uppercase tracking-[0.2em] font-bold text-black/40 mb-4">

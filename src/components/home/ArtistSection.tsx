@@ -64,9 +64,9 @@ export default function ArtistSection() {
 
   return (
     <section 
-        id="artist-showcase" 
+        id="artist" 
         ref={containerRef} 
-        className="relative min-h-[120vh] bg-[#F5F5F7] text-black overflow-hidden flex items-center py-20"
+        className="relative min-h-[120vh] bg-[#F5F5F7] text-black overflow-hidden flex items-center py-20 scroll-mt-24"
     >
       {/* Background large text */}
       <h2 className="artist-bg-text absolute top-[10%] left-0 w-full text-[15vw] leading-none font-bold text-black/5 uppercase tracking-tighter whitespace-nowrap z-0 select-none will-change-transform text-center">

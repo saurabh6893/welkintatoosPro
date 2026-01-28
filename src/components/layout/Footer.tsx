@@ -29,7 +29,7 @@ export default function Footer() {
                 scrollTrigger: {
                     trigger: footerRef.current,
                     start: "top 95%", // Start when top of footer hits bottom of viewport
-                    end: "center 75%", // Fully clear when center of footer is near bottom-middle
+                    end: "center 60%", // Fully clear when center of footer is near bottom-middle
                     scrub: 1.2, // Smooth scrub delay
                 }
             }
@@ -67,10 +67,14 @@ export default function Footer() {
           <div className="md:col-span-2 space-y-8">
             <h4 className="text-[10px] uppercase tracking-[0.2em] font-bold text-black/30">Studio</h4>
             <ul className="space-y-4">
-              {['The Artist', 'Styles', 'Philosophy'].map((item) => (
-                <li key={item}>
-                  <Link href={`#${item.toLowerCase().replace(' ', '')}`} className="text-sm font-medium text-black/70 hover:text-black transition-colors block">
-                    {item}
+              {[
+                { label: 'The Artist', href: '#artist' },
+                { label: 'Styles', href: '#styles' },
+                { label: 'Philosophy', href: '#philosophy' }
+              ].map((item) => (
+                <li key={item.label}>
+                  <Link href={item.href} className="text-sm font-medium text-black/70 hover:text-black transition-colors block">
+                    {item.label}
                   </Link>
                 </li>
               ))}
