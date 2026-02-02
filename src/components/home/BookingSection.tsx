@@ -98,7 +98,7 @@ export default function BookingSection() {
   };
 
   return (
-    <section id="booking" ref={sectionRef} className="py-40 bg-white text-black relative overflow-hidden">
+    <section id="booking" ref={sectionRef} className="py-20 md:py-40 bg-white text-black relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-3xl -z-10 opacity-60" />
 
@@ -108,7 +108,7 @@ export default function BookingSection() {
             {/* Left Col: Info */}
             <div ref={leftColRef} className="space-y-8 will-change-transform">
                 <span className="text-xs uppercase tracking-[0.3em] font-bold text-black/40">Inquiries</span>
-                <h2 className="text-6xl font-sans font-bold leading-tight">
+                <h2 className="text-4xl md:text-6xl font-sans font-bold leading-tight">
                     Begin Your <br /> Transformation.
                 </h2>
                 <div className="space-y-6 pt-4">

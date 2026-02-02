@@ -13,12 +13,12 @@ export default function Preloader() {
       setCount((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
-          setTimeout(() => setLoading(false), 800);
+          setTimeout(() => setLoading(false), 200); // 4x faster exit delay
           return 100;
         }
         return prev + Math.floor(Math.random() * 10) + 1;
       });
-    }, 100);
+    }, 40); // 2.5x faster interval
 
     return () => clearInterval(interval);
   }, []);
@@ -29,7 +29,7 @@ export default function Preloader() {
         <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            transition={{ duration: 0.5, ease: "easeInOut" }} // Faster exit fade
             className="fixed inset-0 z-[9999] flex items-center justify-center bg-black text-white"
         >
             <div className="flex flex-col items-center">
@@ -43,7 +43,7 @@ export default function Preloader() {
                  <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: "200px" }}
-                    transition={{ duration: 1.5, ease: "easeInOut" }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }} // Faster line animation
                     className="h-[1px] bg-white mt-8"
                 />
             </div>
