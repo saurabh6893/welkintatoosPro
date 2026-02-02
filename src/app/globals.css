@@ -5,6 +5,12 @@
   --foreground: #0a0a0a; /* Deep black for text */
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
 /* Enforce light mode variables even if system is dark, as per design reqs */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -31,7 +37,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6; /* Increased for editorial readability */
-  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Lenis Recommended Styles */
