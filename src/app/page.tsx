@@ -7,7 +7,7 @@ import TextRevealSection from "@/components/home/TextRevealSection";
 import GallerySection from "@/components/home/GallerySection";
 // StyledSection removed in favor of ServicesSection BENTO grid
 import PhilosophySection from "@/components/home/PhilosophySection";
-import Testimonials from "@/components/home/Testimonials";
+import TestimonialsScrollSection from "@/components/TestimonialsScrollSection";
 import FAQSection from "@/components/home/FAQSection";
 import BookingSection from "@/components/home/BookingSection";
 
@@ -22,7 +22,7 @@ export default function Home() {
       <TextRevealSection />
       <GallerySection />
       <PhilosophySection />
-      <Testimonials />
+      <TestimonialsScrollSection />
       <FAQSection />
       <BookingSection />
     </div>
