@@ -29,7 +29,7 @@ export default function Footer() {
                 scrollTrigger: {
                     trigger: footerRef.current,
                     start: "top 95%", // Start when top of footer hits bottom of viewport
-                    end: "center 60%", // Fully clear when center of footer is near bottom-middle
+                    end: "center 70%", // Fully clear when center of footer is near bottom-middle
                     scrub: 1.2, // Smooth scrub delay
                 }
             }
