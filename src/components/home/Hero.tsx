@@ -57,10 +57,30 @@ export default function Hero() {
                 Where art becomes part of you. Experience the fusion of modern minimalism and timeless ink.
             </p>
             <div className="flex gap-6">
-                <Button variant="primary" size="lg" className="bg-white text-black hover:bg-white/90">
+                <Button 
+                    variant="primary" 
+                    size="lg" 
+                    className="bg-white text-black hover:bg-white/90"
+                    onClick={() => {
+                        const booking = document.getElementById("booking");
+                        if (booking) {
+                            booking.scrollIntoView({ behavior: "smooth" });
+                        }
+                    }}
+                >
                     Book Session
                 </Button>
-                <Button variant="outline" size="lg" className="text-white border-white hover:bg-white hover:text-black">
+                <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="text-white border-white hover:bg-white hover:text-black"
+                    onClick={() => {
+                        const gallery = document.getElementById("gallery");
+                        if (gallery) {
+                            gallery.scrollIntoView({ behavior: "smooth" });
+                        }
+                    }}
+                >
                     View Gallery
                 </Button>
             </div>

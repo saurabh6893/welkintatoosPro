@@ -73,7 +73,17 @@ export default function Footer() {
                 { label: 'Philosophy', href: '#philosophy' }
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-sm font-medium text-black/70 hover:text-black transition-colors block">
+                  <Link 
+                    href={item.href} 
+                    className="text-sm font-medium text-black/70 hover:text-black transition-colors block"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const target = document.getElementById(item.href.replace("#", ""));
+                      if (target) {
+                        target.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                  >
                     {item.label}
                   </Link>
                 </li>

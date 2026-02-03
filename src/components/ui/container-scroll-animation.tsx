@@ -14,7 +14,7 @@ export const ContainerScroll = ({
   const { scrollYProgress } = useScroll({ target: ref });
 
   const rotate = useTransform(scrollYProgress, [0, 1], [18, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1.05, 1]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
 
   return (
     <section

@@ -11,7 +11,6 @@ const NAV_ITEMS = [
   { name: "Styles", href: "#styles" },
   { name: "Gallery", href: "#gallery" },
   { name: "Philosophy", href: "#philosophy" },
-  { name: "Contact", href: "#contact" },
 ];
 
 export default function Header() {
@@ -55,6 +54,13 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.getElementById(item.href.replace("#", ""));
+                  if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 className="text-sm font-medium tracking-wide text-black/80 hover:text-black transition-colors duration-300 relative group"
               >
                 {item.name}
@@ -63,6 +69,13 @@ export default function Header() {
             ))}
             <Link
               href="#booking"
+              onClick={(e) => {
+                e.preventDefault();
+                const target = document.getElementById("booking");
+                if (target) {
+                  target.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
               className="ml-4 px-6 py-2 bg-black text-white text-xs uppercase tracking-widest font-medium hover:bg-black/80 transition-all duration-300 rounded-sm"
             >
               Book Now
@@ -103,7 +116,14 @@ export default function Header() {
                   <Link
                     href={item.href}
                     className="text-2xl font-light tracking-widest uppercase"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMobileMenuOpen(false);
+                      const target = document.getElementById(item.href.replace("#", ""));
+                      if (target) {
+                         target.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                   >
                     {item.name}
                   </Link>
@@ -117,7 +137,14 @@ export default function Header() {
                    <Link
                     href="#booking"
                     className="mt-8 px-8 py-3 bg-black text-white text-sm uppercase tracking-widest"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMobileMenuOpen(false);
+                      const target = document.getElementById("booking");
+                      if (target) {
+                         target.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                   >
                     Book Appointment
                   </Link>
