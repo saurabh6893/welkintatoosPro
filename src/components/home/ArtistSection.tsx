@@ -103,19 +103,31 @@ export default function ArtistSection() {
         <motion.div 
             style={{ y }}
             ref={imageRef} 
-            className="order-1 md:order-2 relative h-[80vh] w-full"
+            className="order-1 md:order-2 relative h-[70vh] md:h-[80vh] w-full max-w-[480px] mx-auto group"
         >
-             {/* Placeholder for Cutout Image - Replace with Akash's photo */}
-            <div className="relative w-full h-full">
-                 <Image
-                    src="/akaashxfx.png" 
-                    alt="Akash Sanap"
-                    fill
-                    className="object-cover object-top md:object-contain drop-shadow-2xl rounded-3xl"
-                 />
-                 {/* Premium subtle glow behind */}
-                 <div className="absolute -inset-10 bg-gradient-to-tr from-black/20 to-transparent blur-3xl -z-10 rounded-full opacity-0 md:opacity-100" />
-            </div>
+             {/* Offset decorative frame */}
+             <div className="absolute inset-0 border border-black/10 rounded-3xl translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-6 group-hover:translate-y-6 -z-10" />
+             
+             {/* Main Image Wrapper */}
+             <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] border border-black/5 bg-white">
+                  <Image
+                     src="/akaashxfx.png" 
+                     alt="Akash Sanap"
+                     fill
+                     className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  {/* Subtle elegant gradient overlay for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-80" />
+                  
+                  {/* Floating studio badge */}
+                  <div className="absolute bottom-6 left-6 text-white z-10">
+                      <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-60 block mb-1">Welkin Tattoo</span>
+                      <p className="text-sm font-semibold tracking-wider">Akash Sanap in Action</p>
+                  </div>
+             </div>
+
+             {/* Premium subtle glow behind */}
+             <div className="absolute -inset-10 bg-gradient-to-tr from-black/10 to-transparent blur-3xl -z-20 rounded-full opacity-0 md:opacity-100" />
         </motion.div>
 
       </div>
