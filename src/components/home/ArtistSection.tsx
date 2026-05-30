@@ -86,7 +86,7 @@ export default function ArtistSection() {
             </div>
             
             <p className="text-xl md:text-2xl font-light leading-relaxed text-black/80 mb-8 max-w-lg">
-                "Ink is the medium. The body is the canvas. The soul is the masterpiece."
+                &ldquo;Ink is the medium. The body is the canvas. The soul is the masterpiece.&rdquo;
             </p>
             <p className="text-sm md:text-base leading-relaxed text-black/60 max-w-md mb-10">
                 With over a decade of mastery in micro-realism and abstract geometry, Akash transforms personal narratives into permanent visual legacies. 
@@ -108,7 +108,7 @@ export default function ArtistSection() {
              {/* Placeholder for Cutout Image - Replace with Akash's photo */}
             <div className="relative w-full h-full">
                  <Image
-                    src="/akash-portrait.jpg" 
+                    src="/akaashxfx.png" 
                     alt="Akash Sanap"
                     fill
                     className="object-cover object-top md:object-contain drop-shadow-2xl rounded-3xl"
